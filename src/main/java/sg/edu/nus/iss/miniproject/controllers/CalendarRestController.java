@@ -26,8 +26,7 @@ public class CalendarRestController {
         String externalApiUrl = "https://api.api-ninjas.com/v1/riddles";
 
         HttpHeaders headers = new HttpHeaders();
-        //headers.set("X-Api-Key", ApiConfig.getApiKey());
-        headers.set("X-Api-Key", "DDXHKudFF+1EJIXsRhvXlg==pDQWFWFX3aEPlcbi");
+        headers.set("X-Api-Key", ApiConfig.getApiKey());
         headers.setContentType(MediaType.APPLICATION_JSON);
 
         HttpEntity<String> entity = new HttpEntity<>(headers);
