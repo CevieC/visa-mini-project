@@ -30,7 +30,7 @@ public class RedisConfig {
     private String redisPassword;
 
     // Railway: REDIS_USERDATABSE
-    @Value("${spring.redis.userDatabase}")
+    @Value("${spring.redis.database}")
     private Integer userDatabase;
 
 

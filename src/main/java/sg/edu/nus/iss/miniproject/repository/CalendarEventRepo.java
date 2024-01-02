@@ -12,10 +12,6 @@ import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
 
-import jakarta.annotation.Resource;
-import jakarta.json.Json;
-import jakarta.json.JsonObject;
-import sg.edu.nus.iss.miniproject.Service.CalendarService;
 import sg.edu.nus.iss.miniproject.models.Calendar;
 import sg.edu.nus.iss.miniproject.models.CalendarEvent;
 import sg.edu.nus.iss.miniproject.models.User;

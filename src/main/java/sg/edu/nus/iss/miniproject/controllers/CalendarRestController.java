@@ -1,6 +1,7 @@
 package sg.edu.nus.iss.miniproject.controllers;
 
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -11,16 +12,21 @@ import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
+import sg.edu.nus.iss.miniproject.config.ApiConfig;
 import sg.edu.nus.iss.miniproject.models.Riddle;
+
 
 @RestController
 public class CalendarRestController {
 
     @GetMapping("/riddle")
     public static Riddle getRiddle() {
+
+
         String externalApiUrl = "https://api.api-ninjas.com/v1/riddles";
 
         HttpHeaders headers = new HttpHeaders();
+        //headers.set("X-Api-Key", ApiConfig.getApiKey());
         headers.set("X-Api-Key", "DDXHKudFF+1EJIXsRhvXlg==pDQWFWFX3aEPlcbi");
         headers.setContentType(MediaType.APPLICATION_JSON);
 

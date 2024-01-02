@@ -1,88 +1,56 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head data-th-replace="~{nav :: head}">
-    <title>Dashboard</title>
 
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-    <style>
-      body {
-        margin-top: 20px;
-      }
+<head data-th-replace="~{nav :: head}">
+  <title>Dashboard</title>
 
-      .task-item {
-        margin-bottom: 20px;
-      }
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <style>
+    body {
+      margin-top: 20px;
+    }
 
-      .card {
-        margin-bottom: 20px;
-      }
-    </style>
-  </head>
+    .task-item {
+      margin-bottom: 20px;
+    }
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Event Planner</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#"
-            >Home <span class="sr-only">(current)</span></a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/calendar">Calendar</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/dashboard">Dashboard</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/logout">Logout</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6"  style="overflow:auto; max-height: 91vh;">
-          <div id="alltasks" class="container"></div>
-        </div>
+    .card {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div th:replace="~{nav :: content}"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6" style="overflow:auto; max-height: 91vh;">
+        <div id="alltasks" class="container"></div>
+      </div>
 
-        <div class="col-md-6">
-          <div class="card">
-            <div class="card-body">
-              <div>
-                <h2 th:text="${riddle.title}"></h2>
-                <p th:text="${riddle.question}"></p>
-                <p th:text="${riddle.answer}"></p>
-              </div>
+      <div class="col-md-6">
+        <h2 class="riddle-header" style="text-align: center; margin-top: 20px; margin-bottom: 20px; text-shadow: 2px 2px #eee; font-weight: bold;">Riddle Rumble</h2>
+        <div class="card" style="border-radius:10px; box-shadow: 0 14px 28px rgba(228, 228, 228, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); 
+          margin-bottom:15px; background-color: #ffe66a;">
+          <div class="card-body" style="color: #000000">
+            <div>
+              <h2 th:text="${riddle.title}"></h2>
+              <p th:text="${riddle.question}"></p>
+              <p th:text="${riddle.answer}"></p>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <div data-th-replace="~{nav :: scripts}"></div>
+  <div data-th-replace="~{nav :: scripts}"></div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script th:inline="javascript">
-      document.addEventListener("DOMContentLoaded", function () {
-      var events = [];
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script th:inline="javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+      var events = /*[[${events}]]*/[];
       console.log("TCL  ~ file: dashboard.html:16 ~ events:", events);
       events = JSON.parse(events);
 
@@ -90,45 +58,57 @@
         return new Date(a.date) - new Date(b.date);
       });
 
-      events.forEach(function (event) {
-        event.start = event.date + "T" + event.start;
-        event.end = event.date + "T" + event.end;
-      });
+      var tasksByDate = events.reduce(function (acc, task) {
+        (acc[task.date] = acc[task.date] || []).push(task);
+        return acc;
+      }, {});
 
       var alltasksContainer = document.getElementById("alltasks");
 
-      events.forEach(function (task) {
-        var taskElement = document.createElement("div");
-        taskElement.classList.add("task-item", "card");
-        taskElement.setAttribute("style", "border-radius:10px; box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); margin-bottom:15px;");
+      Object.keys(tasksByDate).forEach(function (date) {
+        var dateContainer = document.createElement("div");
+        dateContainer.classList.add("date-group");
 
-        var cardBody = document.createElement("div");
-        cardBody.classList.add("card-body");
+        var dateLabel = document.createElement("h3");
+        dateLabel.style.textAlign = "center";
+        dateLabel.style.marginTop = "20px";
+        dateLabel.style.marginBottom = "20px";
+        dateLabel.style.textShadow = "2px 2px #eee";
+        dateLabel.style.fontWeight = "bold";
+        dateLabel.textContent = date;
+        dateContainer.appendChild(dateLabel);
 
-        var dateElement = document.createElement("p");
-        dateElement.classList.add("card-text");
-        dateElement.textContent = "Date: " + task.date;
-        cardBody.appendChild(dateElement);
+        tasksByDate[date].forEach(function (task) {
+          var taskElement = document.createElement("div");
+          taskElement.classList.add("task-item", "card");
+          //taskElement.setAttribute("style", "border-radius:10px; box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); margin-top:15px;");
 
-        var titleElement = document.createElement("p");
-        titleElement.classList.add("card-text");
-        titleElement.textContent = "Title: " + task.title;
-        cardBody.appendChild(titleElement);
+          var cardBody = document.createElement("div");
+          cardBody.classList.add("card-body");
 
-        var descriptionElement = document.createElement("p");
-        descriptionElement.classList.add("card-text");
-        descriptionElement.textContent = "Description: " + task.description;
-        cardBody.appendChild(descriptionElement);
+          var titleElement = document.createElement("p");
+          titleElement.classList.add("card-text");
+          titleElement.style.fontWeight = "bold";
+          titleElement.textContent = task.title;
+          cardBody.appendChild(titleElement);
 
-        var timeElement = document.createElement("p");
-        timeElement.classList.add("card-text");
-        timeElement.textContent = "Time: " + task.start + " - " + task.end;
-        cardBody.appendChild(timeElement);
+          var descriptionElement = document.createElement("p");
+          descriptionElement.classList.add("card-text");
+          descriptionElement.textContent = "Description: " + task.description;
+          cardBody.appendChild(descriptionElement);
 
-        taskElement.appendChild(cardBody);
-        alltasksContainer.appendChild(taskElement);
+          var timeElement = document.createElement("p");
+          timeElement.classList.add("card-text");
+          timeElement.textContent = "Time: " + task.start + " - " + task.end;
+          cardBody.appendChild(timeElement);
+
+          taskElement.appendChild(cardBody);
+          dateContainer.appendChild(taskElement);
         });
+        alltasksContainer.appendChild(dateContainer);
       });
-    </script>
-  </body>
+    });
+  </script>
+</body>
+
 </html>

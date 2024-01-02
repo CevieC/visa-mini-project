@@ -11,37 +11,26 @@
     </head>
     <body>
         <div data-th-fragment="content">
-            <div class="navbar-container"></div>
-                <nav class="navbar navbar-expand-custom navbar-mainbg">
-                    <a class="navbar-brand navbar-logo" href="#">Chronicle</a>
-                    <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fas fa-bars text-white"></i>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ml-auto">
-                            <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
-                            <!-- <li class="nav-item">
-                                <a class="nav-link" th:href="@{'/' + ${user.userId} + '/home'}"><i class="fas fa-tachometer-alt"></i>Home</a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" th:href="@{'/' + ${user.userId} + '/calendar'}"><i class="far fa-calendar-alt"></i>Calendar</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" th:href="@{'/' + ${user.userId} + '/alltask'}"><i class="far fa-clone"></i>View Tasks</a>
-                            </li> -->
-                            <li class="nav-item">
-                                <a class="nav-link" href="javascript:void(0);"><i class="far fa-calendar-alt"></i>Updates</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="javascript:void(0);"><i class="far fa-chart-bar"></i>People</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="javascript:void(0);"><i class="far fa-copy"></i>Settings</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
+            <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #6c63ff; box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);">
+                <a class="navbar-brand" style="color: white; font-weight: bold;" href="#">Chronicle</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" style="color: white" href="/calendar">Calendar<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="color: white" href="/dashboard">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="color: white" href="/logout">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </div>
         <div data-th-fragment="scripts">
             <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

@@ -75,6 +75,16 @@
           />
         </div>
         <div class="form-group">
+          <label for="title">Title:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            name="title"
+            th:value="${task.title}"
+            required
+          />
+        <div class="form-group">
           <label for="eventDescription">Event Description:</label>
           <input
             type="text"
@@ -85,16 +95,6 @@
             required
           />
         </div>
-        <div class="form-group">
-          <label for="title">Title:</label>
-          <input
-            type="text"
-            class="form-control"
-            id="title"
-            name="title"
-            th:value="${task.title}"
-            required
-          />
         </div>
         <div class="form-group">
           <label for="startTime">Start Time:</label>

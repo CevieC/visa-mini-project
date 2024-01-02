@@ -4,14 +4,11 @@ import java.util.UUID;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
 
 import jakarta.annotation.Resource;
-import jakarta.json.Json;
-import jakarta.json.JsonObject;
 import sg.edu.nus.iss.miniproject.models.User;
 
 @Repository

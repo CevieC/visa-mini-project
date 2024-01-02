@@ -12,7 +12,7 @@ public class LogoutController {
     public String logout(HttpSession session) {
         session.invalidate();
 
-        return "landing";
+        return "redirect:/";
     }
 
 }
