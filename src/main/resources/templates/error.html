@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <!-- Add any stylesheets or head content you need -->
+</head>
+<body>
+    <div class="error-container" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+
+    <h1>Oh No!!</h1>
+        <div>
+            <p>Its a <span th:text="${statusCode}">500</span> error!!!</p>
+            <p>Error message: <span th:text="${message}">Internal Server Error</span></p>
+            <!-- Add more error details if needed -->
+        </div>
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>

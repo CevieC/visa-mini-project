@@ -36,11 +36,12 @@ public class CalendarController {
     private CalendarService calendarService;
 
     @GetMapping("/calendar")
-    public String home(Model model, HttpServletRequest request) {
+    public String home(String username, Model model, HttpServletRequest request) {
         User user = CalendarService.getMockUser(request);
 
+        model.addAttribute("username", username); 
         model.addAttribute("events", calendarService.getAllTasks(user).toString());
-        return "calendar";
+        return "calendar"; 
     }
 
     @GetMapping("/addtask")

@@ -16,6 +16,10 @@ public class User implements Serializable {
 
     private String userId;
 
+    @NotNull
+    @Pattern(regexp = "^[a-zA-Z0-9]{4,10}$", message="4 to 10 alpha-numeric characters, no special characters")
+    private String username;
+
     @NotNull(message="First Name is mandatory")
     @Size(min=3, max=50, message="Character length is out of bound")
     private String firstName;
@@ -39,6 +43,9 @@ public class User implements Serializable {
     private String password;
 
     public User(){}
+
+    public String getUsername() {return username;}
+    public void setUsername(String username) {this.username = username;}
 
     public String getUserId() {return userId;}
     public void setUserId(String userId) {this.userId = userId;}

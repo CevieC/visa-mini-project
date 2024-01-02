@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -33,35 +32,14 @@ public class AppHomeController {
 
             sess.setAttribute("user", user);
             m.addAttribute("user", user);
+             m.addAttribute("username", user.getUsername());
             userSvc.saveUser(user);
 
         } else {
             System.out.println("no user");
         }
 
-        return "redirect:calendar";
-    }
-
-    // @GetMapping("/calendar")
-    // public String DisplayCalendarByGET(HttpSession sess, Model m, @PathVariable
-    // String userId) {
-
-    // m.addAttribute("addHomeCss", true);
-    // User user = (User) sess.getAttribute("user");
-    // m.addAttribute("user", user);
-
-    // return "calendar";
-
-    // }
-
-    @GetMapping("/home")
-    public String DisplayHome(HttpSession sess, Model m) {
-
-        User user = (User) sess.getAttribute("user");
-        m.addAttribute("user", user);
-
-        return "home";
-
+        return "redirect:/calendar";
     }
 
     @GetMapping("/alltask")

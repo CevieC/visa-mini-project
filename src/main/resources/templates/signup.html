@@ -17,6 +17,12 @@
           <h1>Sign Up</h1>
           <input
             type="text"
+            placeholder="Username"
+            data-th-field="*{username}"
+          />
+          <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</span>
+          <input
+            type="text"
             placeholder="First Name"
             data-th-field="*{firstName}"
           />

@@ -14,52 +14,12 @@
       body {
         margin-bottom: 70px;
       }
-      footer {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        background-color: #f8f9fa;
-        text-align: center;
-        padding: 10px 0;
-      }
     </style>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Event Planner</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >Home <span class="sr-only">(current)</span></a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/calendar">Calendar</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/dashboard">Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/logout">Logout</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
+    <div th:replace="~{nav :: content}"></div>
     <div class="container mt-5">
-      <h2>Update Task</h2>
+      <h2>Update Event</h2>
 
       <form th:action="@{/updatetask}" method="post">
         <input type="hidden" name="id" th:value="${task.id}" />
@@ -128,10 +88,6 @@
         >
       </form>
     </div>
-
-    <footer class="bg-light text-center py-3">
-      <p>&copy; 2023 Event Planner. All rights reserved.</p>
-    </footer>
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>

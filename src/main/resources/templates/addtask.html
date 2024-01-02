@@ -14,24 +14,16 @@
       body {
         margin-bottom: 70px;
       }
-      footer {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        background-color: #f8f9fa;
-        text-align: center;
-        padding: 10px 0;
-      }
     </style>
   </head>
   <body>
     <div th:replace="~{nav :: content}"></div>
     <div class="container">
       <div class="container mt-5">
-        <h2>Add Task</h2>
+        <h2>Add Event</h2>
         <form th:action="@{/saveTask}" method="post">
           <div class="form-group">
-            <label for="eventDate">Event Date:</label>
+            <label for="eventDate">Date:</label>
             <input
               type="text"
               class="form-control"
