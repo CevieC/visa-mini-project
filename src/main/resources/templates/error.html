@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
-    <title>Error</title>
+    <title>Oops!</title>
     <link th:href="@{/styles/css/error.css}" rel="stylesheet" />
 </head>
+
 <body>
     <div class="error-container" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
-    <div title="404"><span th:text="${statusCode}">500</span></div>
+        <div title="404"><span th:text="${statusCode}">500</span></div>
         <div>
             <p>Error message: <span th:text="${message}">Internal Server Error</span></p>
         </div>
         <a href="/#" onclick="history.back(); return false;" style="text-decoration: none;">Lets head back;</a>
     </div>
 </body>
+
 </html>

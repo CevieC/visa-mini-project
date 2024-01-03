@@ -1,43 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css" crossorigin="anonymous">
-        <link th:href="@{/styles/css/nav.css}" rel="stylesheet" />
-        <link rel="stylesheet" data-th-href="@{/styles/css/calendar.css}" data-th-if="${addHomeCss}" crossorigin="anonymous">
-        <title>Dashboard</title>
-    </head>
-    <body>
-        <div data-th-fragment="content">
-            <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #6c63ff; box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);">
-                <a class="navbar-brand" style="color: white; font-weight: bold;" href="#">Chronicle</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" style="color: white" href="/calendar">Calendar<span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" style="color: white" href="/dashboard">Dashboard</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" style="color: white" href="/logout">Logout</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-        <div data-th-fragment="scripts">
-            <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"></script>
-            <script type="text/javascript" th:src="@{/styles/js/nav.js}"></script>
-            <!-- <script type="text/javascript" th:src="@{/styles/js/calendar.js}"></script> -->
-        </div>
-    </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css"
+        crossorigin="anonymous">
+    <link th:href="@{/styles/css/nav.css}" rel="stylesheet" />
+    <link rel="stylesheet" data-th-href="@{/styles/css/calendar.css}" data-th-if="${addHomeCss}"
+        crossorigin="anonymous">
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <div data-th-fragment="content">
+        <nav class="navbar navbar-expand-lg navbar-light"
+            style="background-color: #6c63ff; box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);">
+            <a class="navbar-brand" style="color: white; font-weight: bold;" href="#">Chronicle</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: white" href="/calendar">Calendar<span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: white" href="/dashboard">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: white" href="/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div data-th-fragment="scripts">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"></script>
+        <script type="text/javascript" th:src="@{/styles/js/nav.js}"></script>
+        <!-- <script type="text/javascript" th:src="@{/styles/js/calendar.js}"></script> -->
+    </div>
+</body>
+
 </html>

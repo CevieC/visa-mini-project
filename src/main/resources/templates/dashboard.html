@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head data-th-replace="~{nav :: head}">
   <title>Dashboard</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
@@ -7,14 +8,17 @@
     body {
       margin-top: 20px;
     }
+
     .task-item {
       margin-bottom: 20px;
     }
+
     .card {
       margin-bottom: 20px;
     }
   </style>
 </head>
+
 <body>
   <div th:replace="~{nav :: content}"></div>
   <div class="container">
@@ -24,7 +28,9 @@
       </div>
 
       <div class="col-md-6">
-        <h2 class="riddle-header" style="text-align: center; margin-top: 40px; margin-bottom: 20px; text-shadow: 2px 2px #eee; font-weight: bold; ">Riddle Rumble</h2>
+        <h2 class="riddle-header"
+          style="text-align: center; margin-top: 40px; margin-bottom: 20px; text-shadow: 2px 2px #eee; font-weight: bold; ">
+          Riddle Rumble</h2>
         <div class="card" style="border-radius:10px; box-shadow: 0 14px 28px rgba(228, 228, 228, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); 
           margin-bottom:15px; background-color: #ffe66a;">
           <div class="card-body" style="color: #000000">
@@ -106,4 +112,5 @@
     });
   </script>
 </body>
+
 </html>

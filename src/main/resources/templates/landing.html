@@ -1,37 +1,42 @@
 <html>
+
 <head>
-    <meta charset="UTF-8" />
-    <link th:href="@{/styles/css/landing.less}" rel="stylesheet" />
-    <title>Chronicle</title>
+  <meta charset="UTF-8" />
+  <link th:href="@{/styles/css/landing.less}" rel="stylesheet" />
+  <title>Chronicle</title>
 </head>
+
 <body>
-    <!-- Start Landing Page -->
-    <div class="landing-page">
-      <header>
-        <div class="container">
-          <a href="#" class="logo">CHRO<b>NICLE</b></a>
-          <ul class="links">
-            <li>Home</li>
-            <li>Features</li>
-            <li>Planner Pricing</li>
-            <a th:href="@{/access}"><li>Get Started</li></a>
-          </ul>
+  <!-- Start Landing Page -->
+  <div class="landing-page">
+    <header>
+      <div class="container">
+        <a href="#" class="logo">CHRO<b>NICLE</b></a>
+        <ul class="links">
+          <li>Home</li>
+          <li>Features</li>
+          <li>Planner Pricing</li>
+          <a th:href="@{/access}">
+            <li>Get Started</li>
+          </a>
+        </ul>
+      </div>
+    </header>
+    <div class="content">
+      <div class="container">
+        <div class="info">
+          <h1>Seize Your Days</h1>
+          <p>Organize, Plan, Achieve</p>
+          <a th:href="@{/access}"><button>Get Started</button></a>
         </div>
-      </header>
-      <div class="content">
-        <div class="container">
-          <div class="info">
-            <h1>Seize Your Days</h1>
-            <p>Organize, Plan, Achieve</p>
-            <a th:href="@{/access}"><button>Get Started</button></a>
-          </div>
-          <div class="image">
-            <img th:src="@{/assets/notes.png}"/>
-          </div>
+        <div class="image">
+          <img th:src="@{/assets/notes.png}" />
         </div>
       </div>
     </div>
-    <!-- End Landing Page -->
+  </div>
+  <!-- End Landing Page -->
 </body>
 <script type="text/javascript" th:src="@{/styles/js/landing.js}"></script>
+
 </html>
